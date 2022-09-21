@@ -1,0 +1,798 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Lato:wght@300;400;700&display=swap');
+
+/* :root é um seletor (são usados ​​para selecionar os elementos que você deseja estilizar.*/
+:root{
+--heather-height: 4.5rem;
+  
+    /*cores*/
+--first-color:#2b9348;
+--first-color_alt:#0e44f8;
+--first-color_alt_light: #36ba5b;
+--light-color:#ffff;
+--text-color: #171f07;
+--body-color: #ffff;
+--container-color: #f1fcdc;
+
+/*fontes e tipografias*/
+--body-font: 'Lato', sans-serif;
+--font-logo: 'Italiana', serif;
+--big-font-size: 2rem;
+--h1-font-size: 1.5rem;
+--h2-font-size: 1.25rem;
+--h3-font-size: 1rem;
+--normal-font-size: 0.938rem;
+--small-font-size: 0.813rem;
+
+/*espessura da fonte*/
+--font-light: 300;
+--font-medium: 400;
+--font-bold: 700;
+
+/*margens*/
+--mb-1: 0.5rem;
+--mb-2: 1rem;
+--mb-3: 1.5rem;
+--mb-4: 2rem;
+--mb-5: 2.5rem;
+--mb-6: 3rem;
+
+/*z-indexz*/
+--z-fixed: 100;
+--z-tooltip: 10;
+
+}
+
+/*base*/  /*pega os estilos do :root (acima)*/
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+   
+.html{
+    scroll-behavior: smooth;
+}
+
+/*corpo var(--normal-font-size)*/
+body{
+    margin: var(--heather-height) 0 0 0; /*margem*/
+    font-family: var(--body-font); /*tipo de fonte*/
+    font-size: var(--normal-font-size); /*tamanho da fonte*/
+    background-color:var(--body-color); /*cor do fundo do site*/
+    color: var(--text-color); /*cor das fontes*/
+    line-height: 1.6; /*altura das linhas do corpo do site*/
+}
+
+ul{  /*faz as bolinhas do menu sanduiche sumirem*/
+    list-style: none; 
+}
+
+a{ /*tira os sublinhados das palavras*/
+    text-decoration: none;
+}
+
+img{ /*proporção das imgs*/
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+/*botoes (reserva, faça sua reserva, pedido, msg)*/
+.btn{
+    width: 100%;
+    background: linear-gradient(to right, #2b9348 0%, #80B918);
+    border: none;
+    outline: none;
+    box-shadow: 4px 4px 6px rgba(96, 26, 209, 0.329); /*sombra dos botoes/caixas*/
+    padding: 0.5rem 1.5rem;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-bold);
+    letter-spacing: 4px;
+    text-align: center;
+    outline: none;
+    color: var(--light-color);
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0 auto;
+    transition: all 0.4s ease-in-out;
+}
+
+.btn:hover{
+    letter-spacing: 6px; /*espaçamento entre letras*/
+}
+
+.btn-outline{ /*botoes que ficam coloridos sobre o mouse(que n sao coloridos)*/
+    width: 100%;
+    background-color: transparent;
+border: 1px solid var(--first-color);
+color: var(--first-color);
+box-shadow: 4px 4px 6px rgba(0,0,0,0.1);
+padding: 0.5rem 1.5rem;
+font-size: var(--normal-font-size);
+font-weight: var(--font-bold);
+letter-spacing: 4px;
+text-align: center;
+outline: none;
+border-radius: 6px;
+display: inline-block;
+margin: 0 auto;
+transition: all 0.4s ease-in-out;
+}
+
+.btn-outline:hover{
+    background-color: var(--first-color_alt);
+    border: 1px solid var(--light-color);
+    color: var(--light-color);
+}
+
+.section{ /*tudo q ta na pasta section no index (delivery, sobre, info..)*/
+    padding: 3rem 0 2rem;  /*preenchimento (ao rolar)*/
+}
+
+.section-title,
+.section-subtitle{
+    text-align: center; /*alihar titulo e subtitulo no centro*/
+}
+
+.section-title{ /*titulos (sobre)*/
+    font-family: var(--font-logo);
+    font-size: var(--h1-font-size);
+    letter-spacing: 4px;
+    color: var(--first-color);
+    margin-top: var(--mb-6);
+}
+
+.section-subtitle{ /*subtitulos (Peça nossas saladas e receba no conforto da sua casa*/
+    display: block;
+    color: var(--text-color);
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-light);
+    letter-spacing: 4px;
+    margin-bottom: var(--mb-1);
+}
+
+.section-text{
+    font-size: var(--h3-font-size);
+    color: var(--text-color);
+    letter-spacing: 1.2px;
+    line-height: 24px;
+    margin-bottom: var(--mb-2);
+}
+
+.bd-container{ /*proporção da tela toda*/
+    max-width: 1024px;
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+}
+
+.bd-grid{
+    display: grid;
+    gap: 1, 5rem;
+}
+
+.header{ /*menu superior (barra de cima)*/
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color:  var(--light-color);
+}
+
+.bg-container{ /*cor das informações(endereço,etc) e do sobre (chefs)*/
+    background-color: var(--container-color);
+}
+
+.nav{ /*menu superior, espaçamento*/
+    max-width: 1024px;
+    height: var(--heather-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+@media (max-width: 960px){
+    .nav_menu{
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 50%;
+        height: 100vh;
+        text-align: right;
+        padding:0 2rem;
+        background-color: var(--container-color);
+        border-radius: 150px 0 0 0;
+        box-shadow: -10px -8px 4px rgba(0,0,0,0.1);
+        z-index: var(--z-tooltip);
+        transition: 0.4s;
+    }
+
+.nav_menu .logo{
+    padding-left: 4rem;
+}
+
+.nav_menu .nav_item{
+    margin-bottom: var(--mb-2);
+}
+
+.nav_menu .nav_item:first-child{
+    margin-top: 8rem;
+}
+
+.show-menu{
+    right: 0;
+}
+}
+
+.logo{
+    font-family: var(--font-logo);
+    font-size: var(--h1-font-size);
+    padding-top: 3rem;
+    background: linear-gradient(to right, #2B9348 0%, #80B918 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav_item .btn{
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-bold);
+    color:var(--first-color);
+}
+
+.nav link:hover, .active-link{
+    padding-bottom: var(--mb-1);
+    border-bottom: 1px solid var(--first-color);
+}
+
+.nav_toggle{
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--first-color);
+    margin-right: 1rem;
+    border-radius: 6px;
+    z-index: var(--z-fixed);
+}
+
+.nav_toggle:hover{
+    background-color: var(--first-color);
+    color: var(--light-color);
+}
+
+/*scroll header*/
+.scroll-header{
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/*scroll top*/
+.scrolltop{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--first-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: var(--z-tooltip);
+    transition: 0.4s;
+    visibility: hidden;
+}
+
+    .scrolltop:hover{
+        background-color: var(--first-color_alt_light);
+        color: var(--first-color_alt);
+    }
+    
+    .scroll_top_icon{
+        font-size: 1.8rem;
+        color: var(--light-color);
+    }
+
+    /*show scroll top*/
+    .scroll-top{
+        visibility: visible;
+        bottom: 1rem;
+    }
+
+    /*home*/
+    .home_container{
+        padding: 2rem 1rem;
+    }
+
+    .home_data{
+        text-align: center;
+        margin-bottom: var(--mb-3);
+    }
+
+    .home_title{
+        font-size: var(--h1-font-size);
+        color: var(--text-color);
+    }
+
+    .home_title span{
+        font-family: var(--font-logo);
+        font-size: var(--big-font-size);
+        letter-spacing: 4px;
+        color: var(--first-color);
+    }
+
+    .home_subtitle{
+        font-size: var(--font-logo);    
+        font-weight: var(--font-medium);
+        color: var(--text-color);
+        margin-bottom: var(--mb-5);
+    }
+
+    .home_btn{
+    padding: 0 3rem;
+    }
+
+    .home_btn a{
+        margin-bottom: 1rem;
+    }
+
+    /*sobre*/
+    .about_container{
+        padding: 0 2rem;
+    }
+
+    .about_chefs{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: var(--mb-3);
+    }
+
+    .chefs{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .chefs .img_chefs{
+        width: 180px;
+        transition: 0.4s;
+    }
+
+    .chefs .img_chefs:hover{
+        transform: scale(1.1);
+    }
+    
+    .chefs span{
+        font-size: var(--small-font-size);
+        color: var(--text-color);
+        margin-top: 1rem;
+    }
+
+    .about_data{
+        margin-top: var(--mb-4);
+        background-color: var(--light-color);
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 6px;
+    }
+
+    .about_data .section-text{
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-medium);
+        line-height: 32px;
+    }
+
+    /*cardapio*/
+    .cardapio_container{
+        padding: 1rem 4rem;
+    }
+
+    .card{
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+        margin-top: var(--mb-4);
+        margin-bottom: var(--mb-4);
+        transition: 0.4s;
+    }
+
+    .card img{
+        border-radius: 8px 8px 0 0;
+    }
+
+    .card_data{
+        height: 6rem;
+    }
+
+    .card_data h3{
+        font-weight: var(--font-bold);
+        font-size: var(--h2-font-size);
+        color: var(--first-color);
+        margin-top: var(--mb-2);
+        margin-left: var(--mb-2);
+    }
+
+    .card_data .card_description{
+        margin-left: var(--mb-2);
+    }
+
+    .card_data small{
+font-weight: var(--font-light);
+font-size: var(--normal-font-size);
+margin-top: var(--mb-2);
+margin-bottom: var(--mb-4);
+    }
+
+    .card_preci{
+        margin-top: var(--mb-3);
+    }
+
+    .card_preci span{
+        font-weight: var(--font-bold);
+        font-size: var(--h2-font-size);
+        position: relative;
+        left: 1rem;
+        bottom: 1rem;
+    }
+
+    .card_cart{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        font-size: 1.6rem;
+        color: var(--light-color);
+        background-color: var(--first-color);
+        border-radius: 6px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        cursor: pointer;
+        transition: 0.4s;
+    }
+
+    .card_cart:hover{
+        background-color: var(--first-color_alt);
+    }
+
+    .delivery{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(..img/bg-delivery.jpg);
+       background-position: center;
+       background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .delivery_container{
+border: 1px solid rgba(255, 255, 255, 0.7);
+border-radius: 6px;
+padding: 1rem;
+    }
+
+    .delivery_data h1{
+        margin: 0;
+    }
+
+    .delivery_data{
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 2rem;
+    }
+
+    .delivery_data a{
+        width: 50%;
+        margin-top: var(--mb-3);
+        letter-spacing: 3px;
+    }
+
+   
+    .contato_container{
+        padding: 1rem 2rem;
+    }
+
+    .contato_cta{
+        margin-bottom: var(--mb-3);
+        text-align: center;
+    }
+
+    .contato_title{
+        font-weight: var(--font-bold);
+        font-size: var(--h2-font-size);
+        margin-bottom: var(--mb-2);
+    }
+
+    .contato_cta p{
+        font-weight: var(--normal-font-size);
+        font-size: var(--h3-font-size);
+        line-height: 28px;
+        margin-bottom: var(--mb-2);
+    }
+
+    .contato_cta a{
+        margin-bottom: var(--mb-2);
+    }
+
+    .contato_form .contato_title{
+        text-align: center;
+    }
+
+    .form-control{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-control label{
+        font-size: var(--small-font-size);
+    }
+
+    .form-control input,
+    textarea {
+      font-size: var(--normal-font-size);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #ffffff;
+      border: 2px solid #75b985;
+      margin-bottom: var(--mb-2);
+    }
+
+.form-control textarea{
+resize: none;
+outline: none;
+margin-bottom: var(--mb-6);
+}
+
+.form-control button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+/*compartilhar*/
+.compartilhar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url(..img/bg-compartilhar.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.compartilhar_container .section-title{
+margin-top: var(--mb-3);
+}
+
+.compartilhar_container p{
+font-weight: var(--font-bold);
+font-size: var(--h2-font-size);
+}
+
+.compartilhar_social{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--mb-2);
+    margin-bottom: var(--mb-3);
+}
+
+.compartilhar_social:hover > .insta,
+.compartilhar_social:hover > a{
+    color: var(--text-color);
+}
+
+.compartilhar_social a,
+.insta{
+    font-weight: var(--font-medium);
+    font-size: var(--h2-font-size);
+    color: var(--first-color);
+}
+
+.insta{
+    margin-top: var(--mb-1);
+    margin-right: var(--mb-1);
+}
+
+/*footer*/
+.footer_container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.company,
+.services,
+.info,
+.addres{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--mb-5);
+}
+
+.company .logo{
+    font-family: var(--font-logo);
+    font-size: var(--h3-font-size);
+    line-height: 29px;
+    color: var(--first-color);
+    letter-spacing: 4px;
+}
+
+.company small{
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+}
+
+.company .social_media a {
+    font-size: var(--h2-font-size);
+    color: var(--text-color);
+    border: .1rem solid var(--text-color);
+    padding: .1rem;
+    border-radius: 50%;
+}
+
+.company .social_media a:hover{
+    color: var(--first-color);
+    border: .1rem solid var(--first-color);
+}
+
+.services a:hover,
+.info a:hover{
+    text-decoration: underline;
+}
+
+.footer p{
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.footer_title{
+    font-weight: var(--font-bold);
+    font-size: var(--h3-font-size);
+    line-height: 29px;
+    color: var(--first-color);
+}
+
+.footer_subtitle{
+    font-size: var(--normal-font-size);
+    line-height: 22px;
+    color: var(--text-color);
+}
+
+/*media query*/
+@media (min-width: 576px){
+    .home_img{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .cardapio_container{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+
+    .contato_form{
+        margin-bottom: var(--mb-6);
+    }
+
+    .footer_container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(min-width: 768px){
+    :root {
+        --big-font-size: 4rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: 0.875rem;
+    }
+    .logo{
+        margin: 0 2rem;
+    }
+    .home__container {
+        padding: 3rem 2rem;
+    }
+
+    .home__img {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 960px){
+    .nav_list{
+        display: flex;
+        align-items: center;
+    }
+
+    .nav_item{
+        margin-left: var(--mb-3);
+    }
+
+    .nav_link{
+        font-size: var(--normal-font-size);
+        font-weight: var(--font-bold);
+        color: var(--first-color);
+    }
+    
+    .nav_item:first-child{
+        margin-top: 0;
+    }
+
+    .nav_toggle{
+        display: none;
+    }
+
+    .home_container{
+        padding: 0;
+        height: calc(100vh - var(--header-height));
+        align-content: center;
+        grid-template-columns: 60% 40%;
+    }
+
+    .home_data{
+        margin-top: var(--mb-6);
+    }
+
+    .home_btn{
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .home_btn a:first-child{
+        margin-right: var(--mb-2);
+    }
+
+    .home_img{
+        width: 100%;
+    }
+
+    .about .section-subtitle{
+        padding: 0 3REM;
+    }
+
+    .about_container{
+        padding: 0;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 2rem;
+        align-items: center;
+    }
+
+    .cardapio_container{
+        padding: 0;
+        grid-template-columns: repeat(4,1fr);
+    }
+
+    .contato_container{
+        padding: 0;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 1.5rem;
+        margin-top: var(--mb-2);
+    }
+
+    .form-control button{
+        bottom: -.5rem;
+    }
+
+    .footer_container{
+        padding: 0;
+        grid-template-columns: repeat(4,1fr);
+    }
+}
